@@ -11,7 +11,7 @@ function [Q, R] = GivensQR (A)
                 t = c * A(k, j) + s * A(i, j);
                 A(i, j) = -(s * A(k, j)) + (c * A(i, j));
                 A(k, j) = t;
-                G = Gmatrix(c, s, i, j, n) * G; %aggiornamento G (Gm G m-1 G m-2 ...)
+                G = GMatrix(c, s, i, j, n) * G; %aggiornamento G (Gm G m-1 G m-2 ...)
             end
         end
     end
