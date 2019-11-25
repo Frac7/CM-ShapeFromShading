@@ -1,3 +1,6 @@
+%% GivRot
+% Calcolo c ed s
+%%
 function [c, s] = GivRot(xi, xj)
     if xj == 0 
         c = 1;
