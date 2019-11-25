@@ -4,14 +4,14 @@
 
 function [Q A] = HouseHolderQR(A)
 
-[m, n] = size(A);
-
-Q = eye(n);
+[m, n] = size(A);    
+    
+Q = eye(m);
 
 for i = 1 : n %n al posto di n-1 per matrice rettangolare
-    X = A (i: n, i);
+    X = A (i: m, i); %minDim passi
     [w, k, Ht] = HouseHolderMatrix(X); %Ht per dire Htilde che è grande quanto x
-    H = [eye(i-1) zeros(i-1, n-i+1); zeros(n-i+1, i-1) Ht];
+    H = [eye(i-1) zeros(i-1, m-i+1); zeros(m-i+1, i-1) Ht];
     
     A = H * A; %questo dovrebbe aggiungere una colonna di zeri
     
