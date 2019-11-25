@@ -12,6 +12,6 @@ tic
 x = QRSystemResolution(Q, R, b);
 t = toc;
 
-e = abs(xOriginal - x);
+e = norm(xOriginal - x)/norm(xOriginal);
 
 end
