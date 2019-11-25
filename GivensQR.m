@@ -16,8 +16,10 @@ function [Q, R] = GivensQR (A)
                 R(i, j) = (-s * R(k, j)) + (c * R(i, j));
                 R(k, j) = t;
             end
-            %la matrice G si aggiorna k * i volte, fuori dal ciclo j
+            %la matrice G si aggiorna k * i volte, fuori dal ciclo j            
+            
             G = GMatrix(c, s, k, i, m) * G; %aggiornamento G (Gm G m-1 G m-2 ...)
+            
             %vedi appunti (prodotto matrici G in caso m > n)
             %vedi anche algoritmo (passo 3, istruzione prima dell'output)
         end
