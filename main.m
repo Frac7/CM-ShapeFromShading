@@ -1,5 +1,5 @@
-n = 10;
-m = 20;
+n = 5;
+m = 6;
 
 %generazione dati casuali
 A = rand(m, n);
