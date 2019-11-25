@@ -1,3 +1,7 @@
+%% Householder Matrix
+%Costruzione della matrice elementare di Householder
+%%
+
 function [w, k, H] = HouseHolderMatrix(A)
 n = size(A, 1);
 sigma = norm(A);
