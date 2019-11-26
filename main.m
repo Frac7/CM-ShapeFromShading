@@ -1,5 +1,5 @@
 m = 30;
-n = 50;
+n = 20;
 
 %generazione dati casuali
 A = rand(m, n);
@@ -14,6 +14,4 @@ b = A * x;
 
 %terzo esprimento con fattorizzazione Givens
 [errorSolg, tg, errorQRg, errorSolOriginalg] = ComputeErrors(@GivensQR, A, x, b);
-
-
 
