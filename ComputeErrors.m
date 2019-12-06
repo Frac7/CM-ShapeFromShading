@@ -4,13 +4,16 @@
 function [errorSol, t, errorQR, errorQ, errorSolOriginal] = ComputeErrors(method, A, xOriginal, b)
 tic
 [Q, R] = method(A);
+
 x = QRSystemResolution(Q, R, b);
+
 t = toc;
 
 %verifica fattorizzazione
 errorQR = norm(A - (Q * R)); %indica quanto la fatt. è precisa
 %verifica Q
 [m, n] = size(Q);
+
 errorQ = norm(((Q')*Q) - eye(m));
 
 

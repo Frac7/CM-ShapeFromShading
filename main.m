@@ -26,8 +26,6 @@ errorQm = ones(1,times);
 errorQh = ones(1,times);
 errorQg = ones(1,times);
 
-
-
 for i=1:times
     %generazione dati casualil
     A = rand(m, n);
