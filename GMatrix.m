@@ -13,4 +13,3 @@ function [G] = GMatrix(c, s, i, j, n)
     %notare come sono ordinati gli indici delle matrici G nel prodotto
     %disp(strcat('ij: ', num2str(i), ' ', num2str(j)));
 end
-
