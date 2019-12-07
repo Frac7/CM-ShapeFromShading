@@ -1,3 +1,6 @@
+%% Pseudoinverse
+% Calcolo della pseudoinversa tramite SVD
+%%
 function Api = PseudoInverse(A)
     %calcolo della fattorizzazione SVD di Matlab
     [U, S, V] = svd(A);
