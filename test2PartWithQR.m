@@ -4,6 +4,7 @@
 % (superfici normali) di buona qualità.
 %%
 addpath Functions/
+%load conchiglia.mat
 load superficie1.mat
 format short e
 
