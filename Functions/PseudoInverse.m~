@@ -1,7 +1,7 @@
 %% Pseudoinverse
 % Calcolo della pseudoinversa tramite SVD
 %%
-function Api = PseudoInverse(A)
+function [Api, e] = PseudoInverse(A)
     %calcolo della fattorizzazione SVD di Matlab
     [U, S, V] = svd(A);
     
@@ -16,4 +16,6 @@ function Api = PseudoInverse(A)
     Api = V * Spi * U';
     
     %la pseudoinversa si calcola come V * sigma pseudoinversa * U traposta
+    
+    e = norm(pinv(A) - PseudoInverse(A)); %errore
 end
