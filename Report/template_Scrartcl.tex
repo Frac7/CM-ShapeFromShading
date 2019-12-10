@@ -1,0 +1,38 @@
+\documentclass[]{scrartcl}
+
+%opening
+\title{Shape From Shading}
+\author{Marta Pibiri, 65175\\Francesca Cella, 65172}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduzione}
+Tramite tecniche di computer vision è possibile ottenere la superficie 3D di un oggetto avendo a disposizione delle rappresentazioni 2D dello stesso, ciascuna con le rispettive informazioni sull'illuminazione. La tecnica scelta per questo esperimento è la \textit{Photometric Stereo}, la quale consiste nell'utilizzo di una sola telecamera, con posizione fissa, e diverse fonti di illuminazione.\\%da riformulare, è inteso come come diverse angolazioni di illuminazione
+L'esperimento effettuato è diviso in due parti: nella prima parte, sono stati implementati due metodi di fattorizzazione QR, quello di Givens e quello di Householder; nella seconda parte, è stata effettuata la risoluzione del sistema che permette di stabilire le normali della superficie a partire dalle immagini e dalle luci in input. %integrare
+
+\section{Legge di Lambert}
+La legge di Lambert mette in relazione la riflettanza di una superficie, ovvero il suo albedo (che dipende dal materiale), con le sue normali e le informazioni sulla luce. La legge si esprime come:\\%riformulare?
+\begin{center}
+	$i$ = $\alpha$ $\langle$ \underline{$n$}, \underline{$l$} $\rangle$
+\end{center}
+%altre informazioni
+Se un oggetto viene illuminato di fronte, si vede bene, ma se viene illuminato di lato è buoio: al crescere dell'angolo formatosi tra la posizione dell'osservatore e la fonte luminosa, l'intensità della riflessione diminuisce. %aggiungere magari un disegno e spiegare meglio
+Si suppone che la luce abbia distanza infinta dall'oggetto.
+
+\section{Formulazione del problema}
+Il problema può essere formulato come sistema utilizzando le seguenti matrici:
+\begin{center}
+	$DN\textsuperscript{T}L = M$
+\end{center}
+dove D è la matrice diagonale contenente i valori dell'albedo, N è la matrice contenente le normali, nonché incognita e obiettivo dell'esperimento, L è la matrice contenente le luci e M è la matrice contenente le foto.\\\\
+Nel nostro esperimento, per semplicità, supponiamo che la matrice degli albedo sia una matrice identità di dimensione $p \times p$.\\
+I vettori che rappresentano le normali possono essere rappresentate tramite una matrice contenente $p$ righe, ovvero una riga per ogni pixel.\\ %da rivedere
+I vettori che rappresentano le luci possono essere espressi come matrice $3 \times q$.\\
+L'insieme delle immagini 2D che rappresentano l'oggetto può essere considerato come una matrice di pixel $p \times q$.\\\\
+Tramite la legge di Lambert è possibile esprimere una misura per ogni pixel: possiamo quindi riformulare il problema considerando come matrice delle misure, $M$, una matrice contenente per ogni colonna una delle $k$ foto considerate.
+
+\section{Prima parte} %trovare un altro titolo
+\section{Seconda parte}%anche per questo
+\end{document}
