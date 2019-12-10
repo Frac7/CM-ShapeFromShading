@@ -23,11 +23,8 @@ tic
 
 Nqrtesth = QRSystemResolution(Qh, Rh, Mtrasp);
 
-timeH = toc;
-
 %% con Givens
 %fatt QR di Ltrasp risoluzione sist minimi quadrati QR
-tic
 [Qg, Rg] = GivensQR(Ltrasp);
 
 % Cg = Qg' * Mtrasp;
@@ -36,14 +33,9 @@ tic
 
 Nqrtestg = QRSystemResolution(Qg, Rg, Mtrasp);
 
-timeG = toc;
-
 %% matlab
-tic
-
 Nmatlab = Ltrasp\Mtrasp;
 
-timeM = toc;
 %% errore nella fattorizzazione
 errFatt = norm(N'*L-M, inf);
 errFattH = norm(Nqrtesth'*L-M, inf);
@@ -77,10 +69,6 @@ errNmatgRel = norm(Nmatlab - errNg, inf) / norm(Nmatlab, inf);
 disp('')
 disp('errore relativo sulle normali')
 disp([errNhRel errNgRel errNmatRel errNmathRel errNmatgRel])
-
-disp('')
-disp('tempi')
-disp([timeH timeG timeM])
 
 %stampa
 figure

@@ -1,6 +1,13 @@
+%% PRIMA PARTE 
+% verifica con sistemi casuali della bontà del metodo QR, con
+% fattorizzazione QR di Householder e Givens e confronto con metodologie
+% MATLAB
+%%
+addpath Functions/
+
 m = 20;
 n = 10;
-times = 20;
+times = 10;
 
 arrayIndex = 1:times;
 dimRow = ones(1,times);
@@ -27,7 +34,7 @@ errorQh = ones(1,times);
 errorQg = ones(1,times);
 
 for i=1:times
-    %generazione dati casualil
+    %generazione dati casuali
     A = rand(m, n);
     x = rand(n,1);
     b = A * x;
@@ -73,16 +80,16 @@ legend('time matlab','time householder', 'time givens');
 
 figure
 plot(arrayIndex, errorQRm, '--o',  arrayIndex, errorQRh, '--o', arrayIndex, errorQRg, '--o');
-title('factoring error');
+title('Factoring error');
 xlabel('Step');
-ylabel('error');
+ylabel('Error');
 legend('error matlab','error householder', 'error givens');
 
 figure
 plot(arrayIndex, errorQm, '--o',  arrayIndex, errorQh, '--o', arrayIndex, errorQg, '--o');
 title('Q error');
 xlabel('Step');
-ylabel('error');
+ylabel('Error');
 legend('error matlab','error householder', 'error givens');
 
 
