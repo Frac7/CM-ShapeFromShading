@@ -7,7 +7,7 @@ addpath Functions/
 
 m = 20;
 n = 10;
-times = 10;
+times = 20;
 
 arrayIndex = 1:times;
 dimRow = ones(1,times);

@@ -2,8 +2,6 @@
 % Calcolo di N tramite SVD matlab
 %%
 addpath Functions/
-%load conchiglia.mat
-load superficie1.mat
 format short e
 
 %ora ho L M N r s

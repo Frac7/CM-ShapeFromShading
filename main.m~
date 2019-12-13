@@ -1,0 +1,39 @@
+disp('Superficie1')
+load superficie1.mat
+
+test2PartWithQR
+
+%N, Nmatlab, Nqrtestg, Nqrtesth
+
+h = 1/r-1;
+
+subplot(2, 2, 2);
+
+U = intnormals(N, r, s, h);
+
+FV = PrintShape(U, );
+
+Um = intnormals(Nmatlab, r, s, h);
+
+FVm = PrintShape(Um, 'matlLab');
+
+Ug = intnormals(Nqrtestg, r, s, h);
+
+FVg = PrintShape(Ug, 'givens');
+
+Uh = intnormals(Nqrtesth, r, s, h);
+
+FVh = PrintShape(Uh, 'householder');
+
+test2PartWithSVD
+
+
+
+disp('')
+disp('')
+
+disp('Conchiglia')
+load conchiglia.mat
+test2PartWithQR
+test2PartWithSVD
+

@@ -4,9 +4,6 @@
 % (superfici normali) di buona qualità.
 %%
 addpath Functions/
-%load conchiglia.mat
-
-load superficie1.mat
 format short e
 
 %ora ho L M N r s
@@ -44,6 +41,7 @@ tic
 Nmatlab = Ltrasp\Mtrasp;
 
 timeM = toc;
+
 %% errore nella fattorizzazione
 errFatt = norm(N'*L-M, inf);
 errFattH = norm(Nqrtesth'*L-M, inf);
@@ -52,6 +50,8 @@ errFattMat = norm(Nmatlab'*L-M, inf);
 
 disp('')
 disp('errore nella fattorizzazione')
+space='______';
+disp(['errFatt' space 'errFattH' space 'errFattG' space 'errFattMat'])
 disp([errFatt errFattH errFattG errFattMat])
 
 %% errore sulle noramli
@@ -64,6 +64,7 @@ errNmatg = norm(Nmatlab - errNg, inf);
 
 disp('')
 disp('errore sulle normali')
+disp(['errNh' space 'errNg' space 'errNmat' space 'errNmath' space 'errNmatg'])
 disp([errNh errNg errNmat errNmath errNmatg])
 
 %% errore relativo sulle normali
@@ -76,6 +77,7 @@ errNmatgRel = norm(Nmatlab - errNg, inf) / norm(Nmatlab, inf);
 
 disp('')
 disp('errore relativo sulle normali')
+disp(['errNhRel' space 'errNgRel' space 'errNmatRel' space 'errNmathRel' space 'errNmatgRel'])
 disp([errNhRel errNgRel errNmatRel errNmathRel errNmatgRel])
 
 disp('')
