@@ -10,18 +10,18 @@ x = QRSystemResolution(Q, R, b);
 t = toc;
 
 %verifica fattorizzazione
-errorQR = norm(A - (Q * R)); %indica quanto la fatt. è precisa
+errorQR = norm(A - (Q * R), inf); %indica quanto la fatt. è precisa
 %verifica Q
 [m, n] = size(Q);
 
-errorQ = norm(((Q')*Q) - eye(m));
+errorQ = norm(((Q')*Q) - eye(m), inf);
 
 
 %calcolo dell'errore relativo (più evidenti se avessimo più di una
 %soluzione)
-errorSol = norm(A*x - b)/norm(x);
+errorSol = norm(A*x - b, inf)/norm(x, inf);
 
-errorSolOriginal = norm(xOriginal-x)/norm(xOriginal);
+errorSolOriginal = norm(xOriginal-x, inf)/norm(xOriginal, inf);
 
 
 end

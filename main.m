@@ -1,52 +1,81 @@
+%% main
+% Script in cui vengono richiamati altri script allo scopo di svolgere
+% l'esperimento relativo alla tesina per CM.
+% in particolare, viene prima effettuata la parte relativa a part1, dove
+% vengono testate le metodologie QR di householder e givens e poi si
+% procede con la seconda fase, ovvero verificarne la bontà in un problema
+% di shape by shading con dati prestati dal professor Rodriguez.
+% per risolvere tale parte, viene richiamato lo script coreRisolvere sia
+% per i dati di superficie1 sia per conchiglia.
+
+addpath Functions/
+addpath data/
+
+format short e
+
+%% part one - verifica implementazione QR, householder e givens
+
+test1Part
+
+%% part two - verifica risoluzione della matrice N (normali) con QR e SVD
 disp('Superficie1')
+
 load superficie1.mat
 
-test2PartWithQR
+[n, m] = size(M);
 
-%N, Nmatlab, Nqrtestg, Nqrtesth
+%stampa delle foto
+figure()
+for i=1:m
+    I = mat2gray(reshape(M(:, i), r, s));
+    subplot(2, 4, i)
+    imshow(I);
+end
 
-%%
+%title('Immagini originali di Superificie1')
 
-h = 1/r-1;
+%richiamo del risolutore della seconda parte.
+coreRisolver
 
-%%
-U = intnormals(N, r, s, h);
+%% stampa dei risultati
+errorsName = {'errore fattorizzazione', 'errore assoluto della normale', 'errore relativo della normale', 'errore relativo della normale matlab','tempi'}; 
 
-subplot(2, 2, 1);
+disp('Errori nelle normali superficie1')
 
-FV = PrintShape(U);
+tableErrorNsup = table(errorsName', date(:,1), date(:,2), date(:,3), date(:,4), date(:,5), 'VariableNames', {'Tipo','Normale','HouseHolderError','GivensError', 'Matlab', 'SVD'});
 
-%%
-Um = intnormals(Nmatlab, r, s, h);
+disp(tableErrorNsup)
 
-subplot(2, 2, 2);
+clear date
 
-FVm = PrintShape(Um);
-
-%%
-Ug = intnormals(Nqrtestg, r, s, h);
-
-subplot(2, 2, 3);
-
-FVg = PrintShape(Ug);
-
-%%
-Uh = intnormals(Nqrtesth, r, s, h);
-
-subplot(2, 2, 4);
-
-FVh = PrintShape(Uh);
-
-%%
-test2PartWithSVD
-
-
-
-disp('')
-disp('')
-
+%% stesso procedimento verrà applicato ai dati relativi a conchiglia
 disp('Conchiglia')
-load conchiglia.mat
-test2PartWithQR
-test2PartWithSVD
 
+load conchiglia.mat
+
+[n, m] = size(M);
+
+figure()
+
+for i=1:m
+    I = mat2gray(reshape(M(:, i), s, r));
+    subplot(5, 4, i)
+    imshow(I);
+end
+
+%title('Immagini originali conchiglia')
+
+coreRisolver
+
+%%
+disp('Errori nelle normali conchiglia')
+
+tableErrorNconch = table(errorsName', date(:,1), date(:,2), date(:,3), date(:,4), date(:,5), 'VariableNames', {'Tipo','Normale','HouseHolderError','GivensError', 'Matlab', 'SVD'});
+
+disp(tableErrorNconch)
+
+clear date
+
+clear errosName
+
+clear r s
