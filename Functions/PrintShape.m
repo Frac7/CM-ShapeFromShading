@@ -2,7 +2,7 @@
 % ricotruzione della superficie data la U calcolata da un'altra funzione.
 % Tale funzione PrintShape ha il compito di stampare e visualizzare la sup
 % ricostruita e rendere una mesh.
-function FV = PrintShape(U)
+function [] = PrintShape(U)
     
     I = mat2gray(U);
 
@@ -13,7 +13,7 @@ function FV = PrintShape(U)
     shading interp
 
     %colormap(hot)
-
-    FV=mesh(b);
+    
+    mesh(b)
 end
 
