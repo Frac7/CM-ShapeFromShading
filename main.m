@@ -42,7 +42,7 @@ errorsName = {'errore fattorizzazione', 'errore assoluto della normale', 'errore
 
 disp('Errori nelle normali superficie1')
 
-tableErrorNsup = table(errorsName', date(:,1), date(:,2), date(:,3), date(:,4), date(:,5), 'VariableNames', {'Tipo','Normale','HouseHolderError','GivensError', 'Matlab', 'SVD'});
+tableErrorNsup = table(errorsName', date(:,1), date(:,2), date(:,3), date(:,4), date(:,5), 'VariableNames', {'Tipo','Normale','HouseHolder','Givens', 'Matlab', 'SVD'});
 
 disp(tableErrorNsup)
 

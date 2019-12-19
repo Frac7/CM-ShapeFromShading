@@ -88,7 +88,7 @@ title("\fontsize{8} Ricostruzione errore N vs HouseHolder")
 %%
 subplot(2, 2, 4);
 
-PrintShape(Ug - Uh);
+PrintShape(U - Usvd);
 
 title("\fontsize{8} Ricostruzione errore N vs Svd")
 
