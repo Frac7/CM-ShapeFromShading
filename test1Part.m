@@ -87,7 +87,8 @@ tableErrorOnSolution = table(arrayIndex', errorSolOriginalm', errorSolOriginalh'
 disp(tableErrorOnSolution)
 
 subplot(3, 2, 3)
-plot(arrayIndex, tm, '--o',  arrayIndex, th, '--o', arrayIndex, tg, '--o');
+%plot(arrayIndex, tm, '--o',  arrayIndex, th, '--o', arrayIndex, tg, '--o');
+semilogy(arrayIndex, tm, '--o',  arrayIndex, th, '--o', arrayIndex, tg, '--o');
 title('Time');
 xlabel('Step');
 ylabel('Time');
