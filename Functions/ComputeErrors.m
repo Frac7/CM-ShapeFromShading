@@ -19,7 +19,10 @@ errorQ = norm(((Q')*Q) - eye(m), inf);
 
 %calcolo dell'errore relativo (più evidenti se avessimo più di una
 %soluzione)
-errorSol = norm(A*x - b, inf)/norm(x, inf);
+%errorSol = norm(A*x - b, inf)/norm(x, inf);
+
+%questo diventa residuo relativo
+errorSol = norm(A*x - b, inf)/norm(b, inf);
 
 errorSolOriginal = norm(xOriginal-x, inf)/norm(xOriginal, inf);
 

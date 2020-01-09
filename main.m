@@ -5,7 +5,7 @@
 % vengono testate le metodologie QR di householder e givens e poi si
 % procede con la seconda fase, ovvero verificarne la bontà in un problema
 % di shape by shading con dati prestati dal professor Rodriguez.
-% per risolvere tale parte, viene richiamato lo script coreRisolvere sia
+% per risolvere tale parte, viene richiamato lo script coreResolvere sia
 % per i dati di superficie1 sia per conchiglia.
 
 addpath Functions/
@@ -35,7 +35,7 @@ end
 %title('Immagini originali di Superificie1')
 
 %richiamo del risolutore della seconda parte.
-coreRisolver
+coreResolver
 
 %% stampa dei risultati
 errorsName = {'errore fattorizzazione', 'errore assoluto della normale', 'errore relativo della normale', 'errore relativo della normale matlab','tempi'}; 
@@ -65,7 +65,7 @@ end
 
 %title('Immagini originali conchiglia')
 
-coreRisolver
+coreResolver
 
 %%
 disp('Errori nelle normali conchiglia')

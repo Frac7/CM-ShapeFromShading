@@ -64,29 +64,33 @@ clear dimRow dimColumn
 %% stampa dei grafici
 
 figure
-subplot(3, 2, 1)
-plot(arrayIndex, errorSolm, '--o',  arrayIndex, errorSolh, '--o', arrayIndex, errorSolg, '--o');
-title('Relative Error part1');
+%subplot(3, 2, 1)
+%plot(arrayIndex, errorSolm, '--o',  arrayIndex, errorSolh, '--o', arrayIndex, errorSolg, '--o');
+semilogy(arrayIndex, errorSolm, '--o',  arrayIndex, errorSolh, '--o', arrayIndex, errorSolg, '--o');
+title('Relative Residue part1');
 xlabel('Step');
 ylabel('Error');
 legend('error matlab','error householder', 'error givens');
 
-disp('Relative Error Part 1 on the system')
-tableErrorSystem = table(arrayIndex', errorSolm', errorSolh', errorSolg', 'VariableNames', {'Step','MatlabError','HouseHolderError','GivensError'});
+disp('Relative Residue Part 1 on the system')
+tableErrorSystem = table(arrayIndex', errorSolm', errorSolh', errorSolg', 'VariableNames', {'Step','MatlabResidue','HouseHolderResidue','GivensResidue'});
 disp(tableErrorSystem)
 
-subplot(3, 2, 2)
-plot(arrayIndex, errorSolOriginalm, '--o',  arrayIndex, errorSolOriginalh, '--o', arrayIndex, errorSolOriginalm, '--o');
+figure
+%subplot(3, 2, 2)
+%plot(arrayIndex, errorSolOriginalm, '--o',  arrayIndex, errorSolOriginalh, '--o', arrayIndex, errorSolOriginalm, '--o');
+semilogy(arrayIndex, errorSolOriginalm, '--o',  arrayIndex, errorSolOriginalh, '--o', arrayIndex, errorSolOriginalg, '--o');
 title('Relative Error part2');
 xlabel('Step');
 ylabel('Error');
 legend('error matlab','error householder', 'error givens');
 
 disp('Relative Error Part 2 on the original solution')
-tableErrorOnSolution = table(arrayIndex', errorSolOriginalm', errorSolOriginalh', errorSolOriginalm', 'VariableNames', {'Step','MatlabError','HouseHolderError','GivensError'});
+tableErrorOnSolution = table(arrayIndex', errorSolOriginalm', errorSolOriginalh', errorSolOriginalg', 'VariableNames', {'Step','MatlabError','HouseHolderError','GivensError'});
 disp(tableErrorOnSolution)
 
-subplot(3, 2, 3)
+figure
+%subplot(3, 2, 3)
 %plot(arrayIndex, tm, '--o',  arrayIndex, th, '--o', arrayIndex, tg, '--o');
 semilogy(arrayIndex, tm, '--o',  arrayIndex, th, '--o', arrayIndex, tg, '--o');
 title('Time');
@@ -98,8 +102,10 @@ disp('Time')
 tableTime = table(arrayIndex', tm', th', tg', 'VariableNames', {'Step','MatlabTime','HouseHolderTime','GivensTime'});
 disp(tableTime)
 
-subplot(3, 2, 4)
-plot(arrayIndex, errorQRm, '--o',  arrayIndex, errorQRh, '--o', arrayIndex, errorQRg, '--o');
+figure
+%subplot(3, 2, 4)
+%plot(arrayIndex, errorQRm, '--o',  arrayIndex, errorQRh, '--o', arrayIndex, errorQRg, '--o');
+semilogy(arrayIndex, errorQRm, '--o',  arrayIndex, errorQRh, '--o', arrayIndex, errorQRg, '--o');
 title('Factoring error');
 xlabel('Step');
 ylabel('Error');
@@ -109,8 +115,10 @@ disp('Factoring error')
 tableErrorFactoring = table(arrayIndex', errorQRm', errorQRh', errorQRg', 'VariableNames', {'Step','MatlabError','HouseHolderError','GivensError'});
 disp(tableErrorFactoring)
 
-subplot(3, 2, 5)
-plot(arrayIndex, errorQm, '--o',  arrayIndex, errorQh, '--o', arrayIndex, errorQg, '--o');
+figure
+%subplot(3, 2, 5)
+%plot(arrayIndex, errorQm, '--o',  arrayIndex, errorQh, '--o', arrayIndex, errorQg, '--o');
+semilogy(arrayIndex, errorQm, '--o',  arrayIndex, errorQh, '--o', arrayIndex, errorQg, '--o');
 title('Q error');
 xlabel('Step');
 ylabel('Error');
@@ -132,4 +140,4 @@ clear errorQm errorQh errorQg
 
 clear times
 
-clear i m n 
+clear i m n
