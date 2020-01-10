@@ -34,6 +34,12 @@ end
 
 %title('Immagini originali di Superificie1')
 
+dataset = 0;
+%serve una variabile nel workspace per capire su quale dataset stiamo lavorando
+%0 è superficie1 mentre 1 è conchiglia
+%con questa variabile si può impostare la scala personalizzata in base al
+%grafico
+
 %richiamo del risolutore della seconda parte.
 coreResolver
 
@@ -65,12 +71,16 @@ end
 
 %title('Immagini originali conchiglia')
 
+dataset = 1;
+
 coreResolver
+
+clear dataset
 
 %%
 disp('Errori nelle normali conchiglia')
 
-tableErrorNconch = table(errorsName', date(:,1), date(:,2), date(:,3), date(:,4), date(:,5), 'VariableNames', {'Tipo','Normale','HouseHolderError','GivensError', 'Matlab', 'SVD'});
+tableErrorNconch = table(errorsName', date(:,1), date(:,2), date(:,3), date(:,4), date(:,5), 'VariableNames', {'Tipo','Normale','HouseHolder','Givens', 'Matlab', 'SVD'});
 
 disp(tableErrorNconch)
 
